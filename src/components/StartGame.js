@@ -1,8 +1,12 @@
-function StartGame() {
+function StartGame({ selectedCategory }) {
   return (
     <div className="start">
-      <h2>Are you ready to challenge yourself?</h2>
-      <p>Choose category</p>
+      <h2>Start Game</h2>
+      {selectedCategory ? (
+        <p>Ready</p>
+      ) : (
+        <p>Please select a category to start the game.</p>
+      )}
     </div>
   );
 }

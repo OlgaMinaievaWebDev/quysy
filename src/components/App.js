@@ -7,7 +7,7 @@ import StartGame from "./StartGame";
 //define initial state
 const initialState = {
   categories: [],
-  selectCategory: null,
+  selectedCategory: null,
 };
 
 //define reducer function
@@ -21,7 +21,7 @@ function reducer(state, action) {
     case "SELECT_CATEGORY":
       return {
         ...state,
-        selectCategory: action.payload,
+        selectedCategory: action.payload,
       };
     default:
       return state;
@@ -46,7 +46,7 @@ function App() {
       <Header />
       <Main>
         <CategorySelector categories={state.categories} dispatch={dispatch} />
-        <StartGame />
+        <StartGame selectedCategory={state.selectedCategory} />
       </Main>
     </div>
   );
