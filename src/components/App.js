@@ -1,6 +1,7 @@
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
 import Main from "./Main";
+import CategorySelector from "./CategorySelector";
 import StartGame from "./StartGame";
 
 //define initial state
@@ -16,6 +17,11 @@ function reducer(state, action) {
       return {
         ...state,
         categories: action.payload,
+      };
+    case "SELECT_CATEGORY":
+      return {
+        ...state,
+        selectCategory: action.payload,
       };
     default:
       return state;
@@ -39,6 +45,7 @@ function App() {
     <div className="app">
       <Header />
       <Main>
+        <CategorySelector categories={state.categories} dispatch={dispatch} />
         <StartGame />
       </Main>
     </div>
