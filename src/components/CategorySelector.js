@@ -9,7 +9,7 @@ function CategorySelector({ categories, dispatch }) {
       <select id="category" onChange={handleChange}>
         <option value="">-- Select a category --</option>
         {categories.map((category) => (
-          <option key={category.id} value={category.id}>
+          <option key={category.id} value={category.name}>
             {category.name}
           </option>
         ))}
