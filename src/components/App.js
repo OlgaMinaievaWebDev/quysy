@@ -27,7 +27,7 @@ function reducer(state, action) {
     case "SET_DIFFICULTIES":
       return {
         ...state,
-        selectedCategory: action.payload,
+        difficulties: action.payload,
       };
     case "SELECT_CATEGORY":
       return {
@@ -37,7 +37,7 @@ function reducer(state, action) {
     case "SET_DIFFICULTY":
       return {
         ...state,
-        selectedDifficulties: action.payload,
+        selectedDifficulty: action.payload,
       };
     default:
       return state;
