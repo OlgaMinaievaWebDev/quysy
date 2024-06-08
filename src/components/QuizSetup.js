@@ -8,6 +8,7 @@ function QuizSetup() {
   const [difficulty, setDifficulty] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [quizStarted, setQuizStarted] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
@@ -38,6 +39,10 @@ function QuizSetup() {
 
   const handleNumQuestions = (e) => {
     setNumberQuestions(e.target.value);
+  };
+
+  const handleAnswer = (answer, question) => {
+    setUserAnswers([...userAnswers, { question: questions.question, answer }]);
   };
 
   return (
@@ -78,7 +83,7 @@ function QuizSetup() {
           <button type="submit">Start Quizy</button>
         </form>
       ) : (
-        <Questions questions={questions} />
+        <Questions questions={questions} onAnswer={handleAnswer} />
       )}
     </div>
   );
